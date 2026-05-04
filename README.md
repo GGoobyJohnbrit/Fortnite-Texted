@@ -6,7 +6,7 @@ To install and run this, you need to get [MSYS2](https://www.msys2.org/), a Coll
 ```
 pacman -S mingw-w64-ucrt-x86_64-gcc
 ```
-Inside MSYS2 MINGW64. GCC is important for running C++, C and C#, but we are focusing on C++. then, go to the repo link ([Here!](https://github.com/GGoobyJohnbrit/Fortnite-Texted)) and click on packages, then click on the latest one. 
+Inside MSYS2 MINGW64. GCC is important for running C++, C and C#, but we are focusing on C++. then, go to the repo link ([Here!](https://github.com/GGoobyJohnbrit/Fortnite-Texted)) and click on releases, then click on the latest one. 
 and then move "Fortnite.cpp" to `C:/msys64/home/{YOUR USERNAME HERE}/`. Then run the following command to compile Fortnite.cpp .
 ```
 g++ Fortnite.cpp -o Fortnite.exe
