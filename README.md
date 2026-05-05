@@ -17,3 +17,4 @@ Once it finished, run
 ```
 If it says `-bash: ./Fortnite.exe: No such file or directory`, then run `ls`. if you dont see Fortnite.exe but you see Fortnite.cpp then run `g++ Fortnite.cpp -o Fortnite.exe` again. if it works, then BAM. 
 you got a working Demo of Fortnite Texted.
+EDIT: i made a gamejolt page for Fortnite Texted. i compiled it with `g++ main.cpp -o fortnite_texted.exe -static -static-libgcc -static-libstdc++` so it can run, with GCC and will still open the terminal. you can use the download link at https://gamejolt.com/games/FortniteTexted_CPP/1068199
