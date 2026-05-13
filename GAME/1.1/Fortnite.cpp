@@ -2,6 +2,7 @@
 #include <string>
 #include <thread>
 #include <chrono>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,13 +10,13 @@ using namespace std;
 bool running = true;
 bool openedDoor = false;
 
-// Function prototype
 void End() {
     cout << "Thanks for playing!" << endl;
     running = false;
 }
+
 void GAMEOVER() {
-	for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         cout << "GAME OVER!" << endl;
     }
     End();
@@ -45,6 +46,9 @@ int main() {
         string input;
         getline(cin, input);
 
+        // FIX 1: remove Windows hidden \r
+        input.erase(remove(input.begin(), input.end(), '\r'), input.end());
+
         if (input == "Fall down with parachute" || input == "fall down with parachute") {
             cout << "You landed in a city that has towers tilted like the Leaning Tower of Pisa." << endl;
             cout << "(Commands= Hide HP=" << HP << ")" << endl;
@@ -54,28 +58,29 @@ int main() {
                  && locate == "City") {
             cout << "You hid inside a Tower, Someone else is in the Tower. they are friendly and are hiding from a enemy." << endl;
             cout << "someone else is next to the door, outside." << endl;
-            cout << "(Commands= Open door HP=" << HP<< ")" << endl;
+            cout << "(Commands= Open door HP=" << HP << ")" << endl;
         } 
         else if ((input == "Open door" || input == "open door")
                  && locate == "City") {
-            cout << "Knock Knock! you just opened the door for the enemy.";
+            cout << "Knock Knock! you just opened the door for the enemy." << endl;
             for (int i = 0; i < 5; i++) {
                 HP--;
             }
-			cout << "(Commands= shoot back HP=" << HP << ")" << endl;
+            cout << "(Commands= shoot back HP=" << HP << ")" << endl;
             openedDoor = true;
         } 
         else if ((input == "shoot back" || input == "Shoot back")
-                 && locate == "City" 
+                 && locate == "City"
                  && openedDoor == true) {
             cout << "you shoot back to the enemy. the enemy ran away." << endl;
             cout << "(HP=" << HP << ")" << endl;
-            cout << "to be continued."<< endl;
+            cout << "to be continued." << endl;
             End();
         } 
         else {
             cout << "Unknown command. Follow the Commands, Player!" << endl;
         }
     }
-   return 0;
+
+    return 0;
 }
